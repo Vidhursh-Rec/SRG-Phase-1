@@ -1,0 +1,234 @@
+/* =========================================================
+   SRG CHATBOT — SHELL + SHARED TOKENS
+   Clean chat UI. Light + dark via variables.
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --bg: #f6f6f3;
+    --card: #ffffff;
+    --soft: #f3f4f6;
+    --text: #1f2430;
+    --muted: #6b7280;
+    --faint: #9ca3af;
+    --border: #e6e8ec;
+
+    --accent: #3b63c9;
+    --accent-hover: #2f50a8;
+    --accent-soft: #e5edfc;     /* user bubble */
+    --bot-bubble: #f1f2f5;
+
+    --online: #22c55e;
+
+    --ok: #15803d;   --ok-bg: #ecfdf3;   --ok-line: #bbf7d0;
+    --bad: #dc2626;  --bad-bg: #fef2f2;  --bad-line: #fecaca;
+    --warn: #a16207; --warn-bg: #fefce8; --warn-line: #fde68a;
+    --esc: #c2410c;  --esc-bg: #fff7ed;  --esc-line: #fed7aa;
+
+    --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 4px 16px rgba(16, 24, 40, 0.04);
+    --radius: 16px;
+}
+
+body.dark-theme {
+    --bg: #131519;
+    --card: #1b1e25;
+    --soft: #252932;
+    --text: #e9ebf0;
+    --muted: #9aa1b0;
+    --faint: #6b7280;
+    --border: #2c313b;
+
+    --accent: #7c9cf0;
+    --accent-hover: #9bb4f5;
+    --accent-soft: #263657;
+    --bot-bubble: #252932;
+
+    --ok: #6ee7a0;   --ok-bg: #12301f;   --ok-line: #1f5a38;
+    --bad: #fca5a5;  --bad-bg: #3a1c1c;  --bad-line: #6b2a2a;
+    --warn: #fcd34d; --warn-bg: #352c10; --warn-line: #6b5a1a;
+    --esc: #fdba74;  --esc-bg: #38210f;  --esc-line: #6b3f1a;
+
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   SHELL: header / top bar / main. No page scroll.
+   ========================================================= */
+
+.chatbot-page {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr);
+
+    overflow: hidden;
+}
+
+.main-content {
+    position: relative;
+    min-height: 0;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 16px;
+
+    padding: 4px 20px 16px;
+    overflow: hidden;
+}
+
+.chat-column {
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#chat-component {
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+#input-component {
+    flex-shrink: 0;
+}
+
+.side-panel {
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+#status-component {
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   SCROLLBARS
+   ========================================================= */
+
+#chat-component ::-webkit-scrollbar,
+.side-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-component ::-webkit-scrollbar-track,
+.side-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#chat-component ::-webkit-scrollbar-thumb,
+.side-panel::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   COMPONENT LOAD ERROR
+   ========================================================= */
+
+.load-error {
+    grid-column: 1 / -1;
+
+    padding: 16px 18px;
+
+    background: var(--bad-bg);
+    border: 1px solid var(--bad-line);
+    border-radius: 12px;
+
+    color: var(--bad);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   MOBILE / TABLET: single column. Side panel = overlay,
+   opened from the top bar button.
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .main-content {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 4px 12px 12px;
+    }
+
+    .side-panel {
+        display: none;
+    }
+
+    .main-content.show-side .side-panel {
+        display: block;
+
+        position: absolute;
+        inset: 4px 12px 12px;
+        z-index: 20;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

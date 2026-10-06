@@ -1,0 +1,105 @@
+<div class="topbar">
+
+    <label class="topbar-search">
+
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-3.5-3.5"></path>
+        </svg>
+
+        <input
+            type="search"
+            id="topbar-search"
+            placeholder="Search conversation"
+            autocomplete="off"
+            aria-label="Search conversation"
+        >
+
+    </label>
+
+
+    <div class="topbar-actions">
+
+        <!-- shown on small screens only: opens SRG status + support centre -->
+        <button
+            type="button"
+            id="side-toggle"
+            class="icon-btn side-toggle"
+            aria-label="Show SRG status and support centre"
+            title="SRG status and support centre"
+        >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                <path d="M15 4v16"></path>
+            </svg>
+        </button>
+
+        <button
+            type="button"
+            id="help-button"
+            class="icon-btn"
+            aria-label="Help"
+            title="Help"
+        >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7"></path>
+                <path d="M12 17h.01"></path>
+            </svg>
+        </button>
+
+        <button
+            type="button"
+            id="bell-button"
+            class="icon-btn"
+            aria-label="Notifications"
+            title="Notifications"
+        >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                <path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"></path>
+            </svg>
+        </button>
+
+        <button
+            type="button"
+            id="upgrade-button"
+            class="upgrade-btn"
+        >
+            Upgrade
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- HELP DIALOG (opened by the ? button) -->
+<dialog id="help-dialog" class="help-dialog" aria-labelledby="help-title">
+
+    <div class="help-box">
+
+        <div class="help-head">
+
+            <h2 id="help-title">Help &amp; contacts</h2>
+
+            <button
+                type="button"
+                id="help-close"
+                class="help-close"
+                aria-label="Close"
+            >
+                ✕
+            </button>
+
+        </div>
+
+        <p class="help-sub">
+            Need a hand? Reach any of our team:
+        </p>
+
+        <ul class="help-list" id="help-list"></ul>
+
+    </div>
+
+</dialog>

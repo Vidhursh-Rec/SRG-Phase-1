@@ -1,0 +1,174 @@
+/* =========================================================
+   SUPPORT CENTRE: map card + email (bottom of right column)
+   ========================================================= */
+
+.contact {
+    padding: 16px 18px 18px;
+}
+
+.contact-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 10px;
+}
+
+.contact-head h2 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.contact-head p {
+    margin-top: 2px;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.open-badge {
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.open-badge:empty {
+    display: none;
+}
+
+.open-badge.open {
+    color: var(--ok);
+    background: var(--ok-bg);
+}
+
+.open-badge.closed {
+    color: var(--bad);
+    background: var(--bad-bg);
+}
+
+
+/* ---- map ---- */
+
+.map-card {
+    height: clamp(110px, 18vh, 170px);
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--soft);
+}
+
+.map-card iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* ---- address + email ---- */
+
+.office-info {
+    margin-top: 10px;
+}
+
+.office-name {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.office-address {
+    margin: 2px 0 6px;
+
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.link {
+    color: var(--accent);
+
+    font-size: 12px;
+    font-weight: 500;
+
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.contact-row {
+    margin-top: 14px;
+    padding-top: 12px;
+
+    border-top: 1px solid var(--border);
+}
+
+.contact-label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.contact-row .link {
+    font-size: 13px;
+}
+
+
+/* ---- click-to-open overlay on the map ---- */
+
+.map-card {
+    position: relative;
+}
+
+.map-open {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    padding: 8px;
+
+    cursor: pointer;
+}
+
+.map-hint {
+    padding: 4px 10px;
+
+    background: var(--card);
+    color: var(--accent);
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    box-shadow: var(--shadow);
+
+    opacity: 0.9;
+    transition: opacity 0.15s ease;
+}
+
+.map-open:hover .map-hint,
+.map-open:focus-visible .map-hint {
+    opacity: 1;
+}

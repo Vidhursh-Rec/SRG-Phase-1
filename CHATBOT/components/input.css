@@ -1,0 +1,128 @@
+/* =========================================================
+   COMPOSER
+   ========================================================= */
+
+.input-container {
+    width: 100%;
+}
+
+.message-form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    width: 100%;
+
+    padding: 8px 8px 8px 10px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.message-form:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.message-form input {
+    flex: 1;
+    min-width: 0;
+    height: 38px;
+
+    padding: 0 6px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: var(--text);
+
+    font-size: 14px;
+}
+
+.message-form input::placeholder {
+    color: var(--faint);
+}
+
+.attachment-button,
+.send-button {
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.attachment-button {
+    background: transparent;
+    color: var(--muted);
+
+    border-radius: 10px;
+
+    font-size: 16px;
+}
+
+.attachment-button:hover {
+    background: var(--soft);
+}
+
+.send-button {
+    background: var(--accent);
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 15px;
+}
+
+.send-button:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+.send-button:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.input-footer {
+    margin-top: 8px;
+
+    text-align: center;
+
+    color: var(--faint);
+
+    font-size: 11px;
+}
+
+
+@media (max-width: 600px) {
+
+    /* 16px stops iOS zoom-on-focus */
+    .message-form input {
+        font-size: 16px;
+    }
+
+    .attachment-button,
+    .send-button {
+        width: 36px;
+        height: 36px;
+    }
+}

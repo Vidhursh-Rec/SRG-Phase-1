@@ -1,0 +1,7 @@
+Refunds are issued only for orders cancelled within 24 hours of purchase.
+Bereavement or emergency discounts, maximum 15 percent, require supporting
+documents submitted before ticket issuance. Retroactive claims after travel
+are not honored under any circumstance. Agents and bots must not promise
+refunds, discounts, or exceptions beyond what is stated in this policy.
+Customer account numbers, order IDs, and payment details must never be
+repeated back in full within a chat response.

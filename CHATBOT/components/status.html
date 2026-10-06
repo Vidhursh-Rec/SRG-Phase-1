@@ -1,0 +1,151 @@
+<aside class="srg-panel">
+
+    <div class="panel-header">
+
+        <div>
+            <h2>SRG Status</h2>
+            <p>Safety monitoring</p>
+        </div>
+
+        <div class="overall-status" id="overall-status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="overall-status-text">ACTIVE</span>
+        </div>
+
+    </div>
+
+
+    <div class="check-list">
+
+        <div class="check-item">
+
+            <div class="check-icon">
+                🔍
+            </div>
+
+            <div class="check-info">
+                <span class="check-name">
+                    Confidentiality
+                </span>
+
+                <span class="check-description">
+                    Sensitive data detection
+                </span>
+            </div>
+
+            <span
+                class="check-result pass"
+                id="confidentiality-status"
+            >
+                ✓ PASS
+            </span>
+
+        </div>
+
+
+        <div class="check-item">
+
+            <div class="check-icon">
+                📚
+            </div>
+
+            <div class="check-info">
+                <span class="check-name">
+                    Policy Alignment
+                </span>
+
+                <span class="check-description">
+                    Policy compliance check
+                </span>
+            </div>
+
+            <span
+                class="check-result pass"
+                id="policy-status"
+            >
+                ✓ PASS
+            </span>
+
+        </div>
+
+
+        <div class="check-item">
+
+            <div class="check-icon">
+                ⚖️
+            </div>
+
+            <div class="check-info">
+                <span class="check-name">
+                    Review Agent
+                </span>
+
+                <span class="check-description">
+                    Response quality review
+                </span>
+            </div>
+
+            <span
+                class="check-result pass"
+                id="review-status"
+            >
+                ✓ PASS
+            </span>
+
+        </div>
+
+
+        <div class="check-item">
+
+            <div class="check-icon">
+                🔐
+            </div>
+
+            <div class="check-info">
+                <span class="check-name">
+                    Error Checker
+                </span>
+
+                <span class="check-description">
+                    Error and hallucination check
+                </span>
+            </div>
+
+            <span
+                class="check-result pass"
+                id="error-status"
+            >
+                ✓ PASS
+            </span>
+
+        </div>
+
+
+        <div class="check-item">
+
+            <div class="check-icon">
+                🧠
+            </div>
+
+            <div class="check-info">
+                <span class="check-name">
+                    Self-Refine
+                </span>
+
+                <span class="check-description">
+                    Response refinement
+                </span>
+            </div>
+
+            <span
+                class="check-result pending"
+                id="refine-status"
+            >
+                —
+            </span>
+
+        </div>
+
+    </div>
+
+</aside>
